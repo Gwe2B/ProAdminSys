@@ -9,8 +9,8 @@ Commands related to this script
 USAGE:
 	$(basename $0) [FLAGS] [SUBCOMMAND]
 FLAGS:
-	-h		Prints help information
-	-o		With build, sepcify the output folder. Otherwise it will ignore.
+	-h		Print help informations.
+	-o		With build, sepcify the output folder. Otherwise it will be ignored.
 SUBCOMMANDS:
 	build		Build the website
 	install		Install the environment
