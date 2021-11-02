@@ -5,25 +5,31 @@ pythonDlUrl="https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
 opensslDlUrl="https://www.openssl.org/source/openssl-1.1.1g.tar.gz"
 
 outputFolder="../output/"
-helpMsg="$(basename "$0") [OPTIONS] <CMD> <ressources folder>
-Programme to create a website from images in the 'ressources folder'
 
-where CMD is one of:
-	build	Build the website
-	install	Install the environment
+getHelp() {
+	cat <<HELP
+Commands related to this script
+USAGE:
+	$(basename $0) [FLAGS] [SUBCOMMAND]
+FLAGS:
+	-h		Prints help information
+	-o		With build, sepcify the output folder. Otherwise it will ignore.
+SUBCOMMANDS:
+	build		Build the website
+	install		Install the environment
+HELP
 
-where OPTIONS can be:
-	-h	Show this help message\n"
+	return 1
+}
 
 while getopts ':h:' option; do
 	case $option in
 		h)
-			echo "$helpMsg"
-			exit
+			getHelp
 			;;
-		/?)
-			echo "Unknown option -$option \n" >&2
-			echo "$helpMsg" >&2
+		\?)
+			echo "Invalid option -$option \n" >&2
+			getHelp >&2
 			exit 1
 			;;
 	esac
