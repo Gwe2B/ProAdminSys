@@ -55,7 +55,7 @@ main() {
 			;;
 
 		build)
-			${scriptFolder}/build.sh
+			${scriptFolder}/build.sh ${outputFolder}
 			exit 0
 			;;
 
