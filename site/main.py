@@ -2,6 +2,10 @@ from bottle import *
 
 app = Bottle()
 
+@app.route('/static/<filename:path>')
+def serv_static(filename):
+    return static_file(filename,root='static')
+
 @app.route('/')
 def index():
     return template('views/index.tlp')

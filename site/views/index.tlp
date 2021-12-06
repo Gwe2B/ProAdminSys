@@ -1,3 +1,12 @@
-% rebase('templates/base.tlp')
-
+% rebase('views/templates/base.tlp')
 <h1>Hello World!</h1>
+Bottom Aligned
+
+<img class="ui top aligned tiny image" src="/images/wireframe/square-image.png">
+<span>Top Aligned</span>
+<div class="ui divider"></div>
+<img class="ui middle aligned tiny image" src="/images/wireframe/square-image.png">
+<span>Middle Aligned</span>
+<div class="ui divider"></div>
+<img class="ui bottom aligned tiny image" src="/images/wireframe/square-image.png">
+<span>Bottom Aligned</span>
