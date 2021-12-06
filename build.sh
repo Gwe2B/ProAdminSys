@@ -1,5 +1,7 @@
 #!/bin/sh
 
+scriptFolder=$(dirname $(readlink -f $0))
+
 mkdir $1
 cd $1
 
@@ -11,7 +13,7 @@ echo "=> Creation of an virtual environment & connect to it"
 . venv/bin/activate 
 pip install -U bottle
 
-cp -r $(dirname $0)/site/* $1
+cp -r ${scriptFolder}/site/* .
 
 echo "=> Disconnection of the virtual environment"
 deactivate
