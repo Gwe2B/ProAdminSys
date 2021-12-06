@@ -15,5 +15,8 @@ pip install -U bottle
 
 cp -r ${scriptFolder}/site/* .
 
+mkdir ./img
+cp $2/* ./img/
+
 echo "=> Disconnection of the virtual environment"
 deactivate
