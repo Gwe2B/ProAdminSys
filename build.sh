@@ -16,11 +16,34 @@ FLAGS:
 	-h			Print help informations.
 	--help		Print help informations.
 
+	--auth				 Add an authentification to the site.
 	-o <directory> 		 Sepcify the output folder.
 	--output=<directory> Sepcify the output folder.
 HELP
 
 	return 1
+}
+
+createAuth() {
+    read -p "Username: " username
+
+    stty -echo
+    echo -n "Password: "
+    read password
+    echo ""
+    echo -n "Confirm password: "
+    read confirmationPassword
+    stty echo
+
+    if [ $password = $confirmationPassword ]
+    then
+        authFileContent="[{\"$username\":\"$(echo -n $password | shasum -a 256)\"}]"
+    else
+        echo "Passwords did not match!" >&2
+        exit 1
+    fi
+
+    return 1
 }
 
 main() {
@@ -37,6 +60,10 @@ main() {
 						outputFolder=${OPTARG#*=}
 						;;
 					
+					auth)
+						createAuth
+						;;
+
 					*)
 						echo "Invalid option --${OPTARG}\n">&2
 						getHelp>&2
@@ -80,8 +107,13 @@ main() {
     mkdir ./static/img
     cp ${sourceImgFolder}/* ./static/img/
 
+	if [ ! -z "$authFileContent" ]
+	then
+		echo $authFileContent > ./auth.json
+	fi
+
     echo "Lancement du serveur sur localhost:8080"
-    python main.py
+    #python main.py
 
     echo "=> Disconnection of the virtual environment"
     deactivate

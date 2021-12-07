@@ -9,14 +9,15 @@ USAGE:
 	$(basename $0) SUBCOMMAND
 	$(basename $0) -h | --help
 FLAGS:
-	-h		Print help informations.
+	-h			Print help informations.
 	--help		Print help informations.
 SUBCOMMANDS:
 	build		Build the website
 	install		Install the environment
 BUILD SUBCOMMAND HELP:
-	-o <directory>		Sepcify the output folder.
-	--output=<directory>	Sepcify the output folder.
+	--auth				 Add an authentification to the site.
+	-o <directory> 		 Sepcify the output folder.
+	--output=<directory> Sepcify the output folder.
 HELP
 
 	return 1
