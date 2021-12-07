@@ -1,0 +1,31 @@
+% rebase('views/templates/base.tlp')
+<h2 class="ui center aligned icon header">
+  <i class="circular terminal icon"></i>
+  Projet Administation Systems
+</h2>
+
+<div class="myGrid">
+% for img in images:
+    <div class="ui card">
+        <img class="ui small image" src="/{{img}}" style="min-height: 300px; width: auto">
+        <div class="content">
+            <a class="header">Nothing yet</a>
+            <div class="meta">
+                <span class="date">Nothing yet</span>
+            </div>
+            <div class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione deserunt hic velit ipsum, adipisci maiores dignissimos expedita sapiente? Provident ducimus quo perferendis sint quam, recusandae explicabo corrupti fugit dignissimos fugiat!
+            </div>
+        </div>
+    </div>
+% end
+</div>
+<style>
+.myGrid {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+  }
+</style>
+  
+     
