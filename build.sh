@@ -18,5 +18,8 @@ cp -r ${scriptFolder}/site/* .
 mkdir ./static/img
 cp $2/* ./static/img/
 
+echo "Lancement du serveur sur localhost:8080"
+python main.py
+
 echo "=> Disconnection of the virtual environment"
 deactivate
