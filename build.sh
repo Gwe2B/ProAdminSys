@@ -113,6 +113,7 @@ main() {
 	fi
 
     echo "Lancement du serveur sur localhost:8080"
+	#TODO: UNCOMMENT THE NEXT LINE
     #python main.py
 
     echo "=> Disconnection of the virtual environment"
