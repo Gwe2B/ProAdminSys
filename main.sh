@@ -1,19 +1,22 @@
 #!/bin/sh
 
-scriptFolder="$(dirname $0)"
-outputFolder="output/"
+scriptFolder=$(dirname $(readlink -f $0))
 
 getHelp() {
 	cat <<HELP
 Commands related to this script
 USAGE:
-	$(basename $0) [FLAGS] [SUBCOMMAND]
+	$(basename $0) SUBCOMMAND
+	$(basename $0) -h | --help
 FLAGS:
-	-h	--help	Print help informations.
-	-o		With build, sepcify the output folder. Otherwise it will be ignored.
+	-h		Print help informations.
+	--help		Print help informations.
 SUBCOMMANDS:
 	build		Build the website
 	install		Install the environment
+BUILD SUBCOMMAND HELP:
+	-o <directory>		Sepcify the output folder.
+	--output=<directory>	Sepcify the output folder.
 HELP
 
 	return 1
@@ -39,10 +42,6 @@ main() {
 			h)
 				getHelp
 				exit 0
-				;;
-			
-			o)
-				outputFolder=${OPTARG}
 				;;
 
 			\?)
@@ -70,7 +69,7 @@ main() {
 			;;
 
 		build)
-			${scriptFolder}/build.sh ${outputFolder} $1
+			${scriptFolder}/build.sh ${@}
 			exit 0
 			;;
 
