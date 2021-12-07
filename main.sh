@@ -9,7 +9,7 @@ Commands related to this script
 USAGE:
 	$(basename $0) [FLAGS] [SUBCOMMAND]
 FLAGS:
-	-h		Print help informations.
+	-h	--help	Print help informations.
 	-o		With build, sepcify the output folder. Otherwise it will be ignored.
 SUBCOMMANDS:
 	build		Build the website
@@ -20,10 +20,25 @@ HELP
 }
 
 main() {
-	while getopts ':ho:' option; do
+	while getopts ':ho:-:' option; do
 		case $option in
+			-)
+				case ${OPTARG} in
+					help)
+						getHelp
+						exit 0
+						;;
+
+					*)
+						echo "Invalid option --${OPTARG}\n">&2
+						getHelp>&2
+						exit 1
+						;;
+
+				esac;;
 			h)
 				getHelp
+				exit 0
 				;;
 			
 			o)
@@ -55,7 +70,7 @@ main() {
 			;;
 
 		build)
-			${scriptFolder}/build.sh
+			${scriptFolder}/build.sh ${outputFolder} $1
 			exit 0
 			;;
 
