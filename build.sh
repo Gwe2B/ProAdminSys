@@ -110,6 +110,7 @@ main() {
 	if [ ! -z "$authFileContent" ]
 	then
 		echo $authFileContent > ./auth.json
+		sed -i 's/ -//' ./auth.json
 	fi
 
     echo "Lancement du serveur sur localhost:8080"
