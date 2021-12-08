@@ -13,6 +13,7 @@ FLAGS:
 	--help		Print help informations.
 SUBCOMMANDS:
 	build		Build the website
+	addImg		Add element to an existing website
 	install		Install the environment
 BUILD SUBCOMMAND HELP:
 	--auth				 Add an authentification to the site.
@@ -71,6 +72,11 @@ main() {
 
 		build)
 			${scriptFolder}/build.sh ${@}
+			exit 0
+			;;
+
+		addImg)
+			${scriptFolder}/addImg.sh ${@}
 			exit 0
 			;;
 

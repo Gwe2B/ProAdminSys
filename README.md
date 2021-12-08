@@ -29,6 +29,14 @@ Par défaut le répértoire de sortie en chemin relatif est dans `./output`.
 
 ## Options supplémentaires
 
+### Ajouter une image à un site
+Il est possible d'ajouter une image à un site préexistant en utilisant la sous
+commande `addImg` comme suit :
+```
+~/ $ ProAdminSys/main.sh addImg <image sources
+```
+Cette commande bénéficie de son lot d'options qui sont lister par `--help` ou `-h`
+
 ### Préciser le répértoire de sortie
 Il est possible de préciser le dossier de sortie pour la commande `build` avec l'option `-o` ou `--output` de la manière suivante :
 ```

@@ -9,7 +9,7 @@ getHelp() {
 	cat <<HELP
 Commands related to this script
 USAGE:
-	$(basename $0) build [FLAGS] <srcDirectory>
+	main.sh build [FLAGS] <srcDirectory>
 srcDirectory designating the folder containing the images to build the website.
 
 FLAGS:
