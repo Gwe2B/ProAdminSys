@@ -27,9 +27,26 @@ Le répértoire `Dossier images sources` étant le dossier contenant les images 
 
 Par défaut le répértoire de sortie en chemin relatif est dans `./output`.
 
-### Options supplémentaires
-Il est possible de préciser le dossier de sortie pour la commande `build` avec l'option `-o` de la manière suivante :
+## Options supplémentaires
+
+### Préciser le répértoire de sortie
+Il est possible de préciser le dossier de sortie pour la commande `build` avec l'option `-o` ou `--output` de la manière suivante :
 ```
-~/ $ ProAdminSys/main.sh -o <répértoire de sortie> build <Dossier images sources>
+~/ $ ProAdminSys/main.sh build -o <répértoire de sortie> <Dossier images sources>
 ```
-En cas de difficulté l'option `ProAdminSys/main.sh -h` est présente et affichera l'aide. De la même manière l'aide s'affichera en cas de commande erronée ou d'options inconnues.
+**OU**
+```
+~/ $ ProAdminSys/main.sh build --output=<répértoire de sortie> <Dossier images sources>
+```
+
+### Ajouter une authentification
+Il est possible de mettre en place un système d'authentification basique grâce à l'option `--auth`. Le script vous demandera alors de saisir un nom d'utilisateur ainsi qu'un mot de passe.
+```
+~/ $ ProAdminSys/main.sh build --auth <Dossier images sources>
+Username: toto
+Password:
+Confirmation password: 
+```
+
+### Afficher l'aide
+En cas de difficulté l'option `ProAdminSys/main.sh -h` ou `ProAdminSys/main.sh --help` est présente et affichera l'aide. De la même manière l'aide s'affichera en cas de commande erronée ou d'options inconnues. Il est également possible d'afficher l'aide des sous commande comme suis `ProAdminSys/main.sh build -h` ou `ProAdminSys/main.sh build --help`.
